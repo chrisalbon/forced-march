@@ -160,6 +160,39 @@ class Game {
             if (e.key.toLowerCase() === 'w') this.keys.w = false;
             if (e.key.toLowerCase() === 's') this.keys.s = false;
         });
+        
+        // Button controls
+        const runButton = document.getElementById('runButton');
+        if (runButton) {
+            // Mouse events
+            runButton.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                this.keys.w = true;
+            });
+            
+            runButton.addEventListener('mouseup', () => {
+                this.keys.w = false;
+            });
+            
+            runButton.addEventListener('mouseleave', () => {
+                this.keys.w = false;
+            });
+            
+            // Touch events for mobile
+            runButton.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                this.keys.w = true;
+            });
+            
+            runButton.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                this.keys.w = false;
+            });
+            
+            runButton.addEventListener('touchcancel', () => {
+                this.keys.w = false;
+            });
+        }
     }
     
     update(deltaTime) {
@@ -428,7 +461,7 @@ class Game {
         this.ctx.shadowBlur = 4;
         this.ctx.shadowOffsetX = 2;
         this.ctx.shadowOffsetY = 2;
-        this.ctx.fillText('press w to run home.', this.canvas.width / 2, this.canvas.height - 40);
+        this.ctx.fillText('press w or hold the button to run home.', this.canvas.width / 2, this.canvas.height - 40);
         this.ctx.shadowBlur = 0;
         this.ctx.shadowOffsetX = 0;
         this.ctx.shadowOffsetY = 0;
