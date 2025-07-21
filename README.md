@@ -6,6 +6,12 @@ An experimental game exploring AI-generated game development based on visual ins
 
 This project began with a single inspiration GIF showing a fantasy scene of a warrior walking through a forest toward a distant village. Using AI assistance, we decoded the visual elements and recreated them as an interactive parallax walking experience.
 
+### Original Inspiration
+
+![Inspiration GIF](inspiration.gif)
+
+*Credit: I don't know who to credit for this image.*
+
 ## Play the Game
 
 🎮 **[Play Forced March](https://chrisalbon.github.io/forced-march/)**

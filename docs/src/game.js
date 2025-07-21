@@ -9,13 +9,13 @@ class Game {
         // Movement controls
         this.position = 70; // Start closer to first layer (first layer is at 100)
         this.velocity = 0;
-        this.maxSpeed = 0.18; // Reduced by 50% from 0.36
-        this.acceleration = 0.0045; // Reduced by 50% from 0.009
+        this.maxSpeed = 0.36; // Doubled from 0.18
+        this.acceleration = 0.009; // Doubled from 0.0045
         this.friction = 0.9;
         
         // Calculate distances based on time requirements
-        // At max speed of 0.18, we travel about 648 units per hour (assuming 60fps)
-        this.blueLayerDistance = 6480; // 10 hours at max speed
+        // At max speed of 0.36, we travel about 1296 units per hour (assuming 60fps)
+        this.blueLayerDistance = 12960; // 10 hours at max speed
         this.redLayerSpacing = 100; // Space between red layers
         
         this.keys = {
