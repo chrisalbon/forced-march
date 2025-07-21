@@ -7,7 +7,7 @@ class Game {
         this.setupControls();
         
         // Movement controls
-        this.position = 0;
+        this.position = 70; // Start closer to first layer (first layer is at 100)
         this.velocity = 0;
         this.maxSpeed = 0.18; // Reduced by 50% from 0.36
         this.acceleration = 0.0045; // Reduced by 50% from 0.009
@@ -349,10 +349,11 @@ class Game {
                         // Position trees so we're at a medium height - between ground and canopy
                         const y = horizonY - height * 0.7; // Show top 30% above horizon (halfway between 0.5 and 0.9)
                         
-                        // Apply distance-based shake effect
+                        // Apply distance-based shake effect with steep falloff
                         // Calculate how far this layer is (0 = very close, 1 = at layer 20)
                         const layerDistance = Math.min(1, obj.z / (20 * this.redLayerSpacing));
-                        const shakeFactor = 1 - layerDistance; // 1 = full shake for close, 0 = no shake for far
+                        // Use exponential falloff so shake drops off quickly
+                        const shakeFactor = Math.pow(1 - layerDistance, 3); // Cubic falloff for steep reduction
                         
                         this.ctx.save();
                         this.ctx.translate(
