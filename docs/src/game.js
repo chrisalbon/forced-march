@@ -14,8 +14,8 @@ class Game {
         this.friction = 0.9;
         
         // Calculate distances based on time requirements
-        // At max speed of 2.0, we travel 7200 units per hour (assuming 60fps)
-        this.blueLayerDistance = 36000; // 5 hours at max speed
+        // At max speed of 0.18, we travel about 648 units per hour (assuming 60fps)
+        this.blueLayerDistance = 6480; // 10 hours at max speed
         this.redLayerSpacing = 100; // Space between red layers
         
         this.keys = {
@@ -189,10 +189,10 @@ class Game {
         if (Math.abs(this.velocity) > 0.01) {
             // Increase walk cycle based on speed
             this.walkCycle += Math.abs(this.velocity) * 0.3;
-            // Calculate bob amount (up and down motion) - reduced by 70%
-            this.bobAmount = Math.sin(this.walkCycle) * 2.4 * Math.abs(this.velocity / this.maxSpeed); // Was 8, now 2.4
-            // Add slight horizontal sway (half frequency for natural feel) - reduced by 70%
-            this.swayAmount = Math.sin(this.walkCycle * 0.5) * 0.9 * Math.abs(this.velocity / this.maxSpeed); // Was 3, now 0.9
+            // Calculate bob amount (up and down motion) - subtle effect
+            this.bobAmount = Math.sin(this.walkCycle) * 3.5 * Math.abs(this.velocity / this.maxSpeed); // Reduced to 3.5
+            // Add slight horizontal sway (half frequency for natural feel) - subtle effect
+            this.swayAmount = Math.sin(this.walkCycle * 0.5) * 1.5 * Math.abs(this.velocity / this.maxSpeed); // Reduced to 1.5
         } else {
             // Gradually reduce bob when stopped
             this.bobAmount *= 0.9;
