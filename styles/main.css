@@ -14,3 +14,30 @@ body {
     image-rendering: pixelated;
     image-rendering: crisp-edges;
 }
+
+#runButton {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    font-size: 18px;
+    font-family: Georgia, serif;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+    touch-action: manipulation;
+}
+
+#runButton:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+#runButton:active {
+    background-color: rgba(230, 230, 230, 1);
+    transform: translateX(-50%) translateY(2px);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
